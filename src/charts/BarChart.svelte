@@ -3,7 +3,7 @@
 	import { scaleLinear, scaleBand, scaleOrdinal } from 'd3-scale';
 	import { axisLeft, axisRight, axisTop, axisBottom } from 'd3-axis';
 	import { format } from 'd3-format';
-	import { select } from 'd3-selection';
+	import { select, selectAll } from 'd3-selection';
 	import { vibrant } from '../helpers/colors.js'
 	import { wrapLabel } from '../helpers/wrapLabel.js'
 
@@ -12,6 +12,7 @@
 		scaleBand: scaleBand,
 		scaleOrdinal: scaleOrdinal,
 		select: select,
+		selectAll: selectAll,
 		axisLeft: axisLeft,
 		axisRight: axisRight,
 		axisBottom: axisBottom,
@@ -58,10 +59,10 @@
 	function generateBarChart() {
 		if (orientation !== "vertical") {
 			padding.top = 0;
-			padding.left = 75;
+			padding.left = 120;
 			padding.right = 15;
 			if (xVar === "protest") {
-				padding.left = 180
+				padding.left = 150
 			}
 			xScale.rangeRound([padding.top, height - padding.bottom])
 			yScale.range([0, width - padding.left - padding.right])
@@ -84,10 +85,11 @@
 					.tickSizeOuter(0)
 					.tickPadding(5)
 				)
-				.call(g => g.select(".domain").remove());
+				.call(g => g.select(".domain").remove())
+				.call(g => g.selectAll(".tick text").attr("font-size","14px").attr("transform", "translate(-3, -5)"));
 
 			axisLeft.selectAll(".tick text")
-				.call(wrapLabel, padding.left);
+				.call(wrapLabel, padding.left - 10);
 
 			let axisBottom = svg.append("g")
 				.attr("transform", "translate(0," + (height-padding.bottom) + ")")

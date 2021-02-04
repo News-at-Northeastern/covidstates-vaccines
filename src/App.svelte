@@ -65,35 +65,50 @@
 			font-size:1.1rem;
 		}
 
+		h4.chart-sub-label {
+			display:block;
+			text-align:center;
+			width:100%;
+			text-transform:capitalize;
+			margin:1rem auto 0;
+		}
+
+		div.minichart {
+			display:inline-block;
+			clear:both;
+		}
+
 	</style>
 
 <GraphicTitle
-	title={"How likely were different demographic groups to buy guns in 2020?"}
+	title={"Percentage of each demographic group that bought a gun in 2020"}
 />
 {#if dataset && dataset.length > 0}
 	{#each ["prior gun ownership", "political party", "age group"] as item, i}
-		<!-- <h4>{item}</h4> -->
-		<BarChart
-			width={
-				(width > 750) ?
-				(50 + (dataset.filter(d => {return d["group"] === item}).length * (width/12))) :
-				width
-			}
-			height={
-				(width > 750) ?
-				220 :
-				(25 + (dataset.filter(d => {return d["group"] === item}).length * (220/3)))
-			}
-			data={dataset.filter(d => {
-				return d["group"] === item
-			})}
-			grouping={item}
-			xVar={"subgroup"}
-			yVar={"yes"}
-			yDomain={[0,0.25]}
-			colorscheme={schemes[i]}
-			orientation={getorientation(width)}
-		/>
+		<div class="minichart">
+			<h4 class="chart-sub-label">{item}</h4>
+			<BarChart
+				width={
+					(width > 750) ?
+					(50 + (dataset.filter(d => {return d["group"] === item}).length * (width/12))) :
+					width
+				}
+				height={
+					(width > 750) ?
+					220 :
+					(25 + (dataset.filter(d => {return d["group"] === item}).length * (220/3)))
+				}
+				data={dataset.filter(d => {
+					return d["group"] === item
+				})}
+				grouping={item}
+				xVar={"subgroup"}
+				yVar={"yes"}
+				yDomain={[0,0.25]}
+				colorscheme={schemes[i]}
+				orientation={getorientation(width)}
+			/>
+		</div>
 	{/each}
 {/if}
 <GraphicFooter

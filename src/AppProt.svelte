@@ -68,7 +68,7 @@
 	</style>
 
 <GraphicTitle
-	title={"Gun purchases in 2020 among protest and rally attendees"}
+	title={"Percentage of protest/rally attendees who purchased a gun in 2020"}
 />
 {#if dataset && dataset.length > 0}
 		<!-- <h4>{item}</h4> -->
@@ -88,7 +88,7 @@
 			yVar={"yes"}
 			yDomain={[0,0.25]}
 			colorscheme={colors.dark}
-			orientation={getorientation(width)}
+			orientation={"horizontal"}
 		/>
 {/if}
 <GraphicFooter

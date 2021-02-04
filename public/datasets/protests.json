@@ -1,14 +1,14 @@
 [
+   {
+     "protest": "Attended a Trump rally",
+     "yes": 0.23
+   },
   {
-    "protest": "People who attended protests about racism and/or police violence",
+    "protest": "Attended an anti-racism protest",
     "yes": 0.13
   },
   {
-    "protest": "People who attended Trump rallies or protests about election fairness or COVID-19 restrictions",
-    "yes": 0.23
-  },
-  {
-    "protest": "People who did not attend rallies or protests",
+    "protest": "Did not attend a rally or protest",
     "yes": 0.08
   }
  ]
