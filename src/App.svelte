@@ -71,6 +71,8 @@
 			width:100%;
 			text-transform:capitalize;
 			margin:1rem auto 0;
+			 border-bottom: unset;
+			 letter-spacing: unset;
 		}
 
 		div.minichart {
