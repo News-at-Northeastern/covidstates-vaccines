@@ -1,4 +1,6 @@
 export const dark = [
+   "#b07aa1",
+   "#f28e2b",
    "#669b90",
    "#3330b7",
    "#6f0662",
@@ -6,7 +8,7 @@ export const dark = [
    "#af5fe4",
    "#2c3771",
    "#809b31",
-   "#02424a"
+    "#02424a"
 ]
 
 
@@ -30,10 +32,10 @@ export const pastels = [
 ]
 
 export const political = [
-
-   "#D41B2C",
-    "#888888",
+    "#D41B2C",
     "#006EB5",
+    "#888888",
+
 ]
 
 export const negativepositive = [

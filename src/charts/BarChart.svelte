@@ -30,19 +30,13 @@
 	export let width = {width};
 	export let height = {height};
 	export let xVar = {xVar};
-	export let yVar = {yVar};
+	export let yVar = {xVar};
 	export let yDomain = ([0, 100])
-	export let colorscheme = vibrant;
+	export let fill = "black"
 	export let orientation = "vertical";
 
-	if (Array.isArray(yVar)) {
-		yVar = yVar
-	} else {
-		yVar = [yVar]
-	}
-
 	$: xScale = d3.scaleBand()
-		.domain(data.map(function(o) { return o[xVar]; }))
+		.domain(xVar)
 		.rangeRound([0, width - padding.left - padding.right])
 		.padding(0.2);
 
@@ -50,20 +44,14 @@
 		.domain(yDomain)
 		.range([height - padding.bottom, padding.top]);
 
-	$: colorScale = d3.scaleOrdinal()
-		.domain(data.map(function(o) { return o[xVar]; }))
-		.range(colorscheme);
-
 	onMount(generateBarChart);
 
 	function generateBarChart() {
+		console.log(data)
 		if (orientation !== "vertical") {
 			padding.top = 0;
-			padding.left = 120;
+			padding.left = 150;
 			padding.right = 15;
-			if (xVar === "protest") {
-				padding.left = 150
-			}
 			xScale.rangeRound([padding.top, height - padding.bottom])
 			yScale.range([0, width - padding.left - padding.right])
 		}
@@ -86,10 +74,10 @@
 					.tickPadding(5)
 				)
 				.call(g => g.select(".domain").remove())
-				.call(g => g.selectAll(".tick text").attr("font-size","14px").attr("transform", "translate(-3, -5)"));
+				.call(g => g.selectAll(".tick text").attr("font-size","12px").attr("transform", "translate(-3, 0)"));
 
 			axisLeft.selectAll(".tick text")
-				.call(wrapLabel, padding.left - 10);
+				.call(wrapLabel, padding.left);
 
 			let axisBottom = svg.append("g")
 				.attr("transform", "translate(0," + (height-padding.bottom) + ")")
@@ -103,81 +91,31 @@
 				.call(g => g.select(".domain").remove())
 
 			// add data points
-			let length = yVar.length
-			for (let v in yVar) {
+			let length = xVar.length
+			for (let v in xVar) {
 				svg.append('g')
 				    .selectAll("rect")
 				    .data(data)
 				    .enter()
 				    .append("rect")
 					 .attr("y", function (d) {
-						 return xScale(d[xVar]) + ((xScale.bandwidth() / length) * v);
+						 return xScale(xVar[v]) + ((xScale.bandwidth() / length));
 					 })
 				    .attr("x", function (d) {
 						 return 0;
 					 })
 					 .attr("height",
-					 	xScale.bandwidth() / length
+					 	xScale.bandwidth()
 					)
 					 .attr("width", function (d) {
-						 return yScale(d[yVar[v]]);
+						 return yScale(d[xVar[v]]);
 					 })
 					 .attr("fill", function(d){
-						 return colorScale(d[xVar]);
+						 return fill;
 					 });
 			}
 
-		} else {
-			// axes
-			let axisBottom = svg.append("g")
-			   .attr("transform", "translate(0," + (height-padding.bottom) + ")")
-			   .call(d3.axisBottom(xScale)
-					.tickSizeInner(0)
-					.tickSizeOuter(0)
-					.tickPadding(5)
-				)
-				.call(g => g.select(".domain").remove());
-
-
-
-			axisBottom.selectAll(".tick text")
-				.call(wrapLabel, width/xScale.domain().length - 30)
-
-			svg.append("g")
-	  			.call(d3.axisLeft(yScale)
-					.ticks(5)
-					.tickSizeInner(-width)
-					.tickSizeOuter(0)
-					.tickPadding(3)
-					.tickFormat(d3.format('.0%'))
-				)
-				.call(g => g.select(".domain").remove());
-
-			// add data points
-			let length = yVar.length
-			for (let v in yVar) {
-				svg.append('g')
-				    .selectAll("rect")
-				    .data(data)
-				    .enter()
-				    .append("rect")
-					 .attr("x", function (d) {
-						 return xScale(d[xVar]) + ((xScale.bandwidth() / length) * v);
-					 })
-				    .attr("y", function (d) {
-						 return yScale(d[yVar[v]]);
-					 })
-					 .attr("width",
-					 	xScale.bandwidth() / length
-					)
-					 .attr("height", function (d) {
-						 return height - padding.bottom - yScale(d[yVar[v]]);
-					 })
-					 .attr("fill", function(d){
-						 return colorScale(d[xVar]);
-					 });
-			}
-		} // if-else on vertical/horizontal
+		}
 
 	} // generateBarChart
 </script>

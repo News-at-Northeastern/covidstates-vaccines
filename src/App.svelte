@@ -1,117 +1,139 @@
 <script>
 	import { onMount, afterUpdate } from 'svelte';
+	import { scaleOrdinal } from 'd3-scale';
 	import BarChart from './charts/BarChart.svelte'
 	import GraphicTitle from './components/GraphicTitle.svelte'
 	import GraphicFooter from './components/GraphicFooter.svelte'
-
 	import * as colors from './helpers/colors.js'
-	import * as gunpurchase from '../public/datasets/gunpurchase.json'
+	import * as data from '../public/datasets/data.json'
 
-		let dataset;
-		let schemes = [colors.divergingbrownteal, colors.political, colors.dark]
+	let dataset;
+	let selectoptions;
+	let active;
+	let schemes = [colors.divergingbrownteal, colors.political, colors.dark]
 
-		function getorientation(x) {
-			if (x > 600) {
-				return "vertical"
-			} else {
-				return "horizontal"
-			}
+	onMount(function() {
+		selectoptions = ([...new Set(data.default.map(d => d.group))])
+		active = selectoptions[0]
+		dataset = data.default.filter(d => (d.group === active))
+		colorScale.domain(data.default.map(d => d.subgroup))
+	})
+
+	afterUpdate(function() {
+		dataset = data.default.filter(d => (d.group === active))
+	})
+
+	let width = Math.min(
+		document.getElementById('interactive').getBoundingClientRect().width,
+		1000
+	);
+
+	function chartwidth(x) {
+		if (window.innerWidth <= 768) {
+			return x
+		} else {
+			return x/2
 		}
+	}
 
-		onMount(function() {
-			dataset = gunpurchase.default
-		})
+	$: colorScale = scaleOrdinal()
+		.domain([0,1,2])
+		.range(colors.dark.concat(colors.vibrant.concat(colors.political)));
 
-		afterUpdate(function() {
-		})
 
-		let width = Math.min(
-			document.getElementById('demographics').getBoundingClientRect().width,
-			1000
-		);
+</script>
 
-		function chartwidth(x) {
-			if (window.innerWidth >= 700) {
-				return (width / x)
-			} else {
-				return width
-			}
+<style>
+	:global(div.chart) {
+		display:inline;
+	}
+
+	:global(form) {
+		display:inline;
+
+	}
+
+	:global(form select) {
+		font-size:1.25rem;
+		font-family: "Akkurat", sans-serif;
+		padding:0.5rem 0.2rem;
+	}
+
+	:global(#demographics-filter) {
+		display:block;
+		width: 100%;
+		text-align:center;
+		margin:0 0 2rem;
+		font-size:1.1rem;
+	}
+
+	h4.chart-sub-label {
+		display:block;
+		text-align:center;
+		width:100%;
+		text-transform:capitalize;
+		margin:1rem auto 0;
+		 border-bottom: unset;
+		 letter-spacing: unset;
+	}
+
+	div.chart-container {
+		display:flex;
+		flex-wrap: wrap;
+		flex-basis: 50%
+	}
+
+	div.minichart {
+		display:inline-block;
+		clear:both;
+	}
+
+	@media screen and (max-width:768px) {
+		div.chart-container {
+			flex-basis:100%;
 		}
+	}
 
-
-	</script>
-
-	<style>
-		:global(div.chart) {
-			display:inline;
-		}
-
-		:global(form) {
-			display:inline;
-
-		}
-
-		:global(form select) {
-			font-size:1.25rem;
-			font-family: "Akkurat", sans-serif;
-			padding:0.5rem 0.2rem;
-		}
-
-		:global(#demographics-filter) {
-			display:block;
-			width: 100%;
-			text-align:center;
-			margin:0 0 2rem;
-			font-size:1.1rem;
-		}
-
-		h4.chart-sub-label {
-			display:block;
-			text-align:center;
-			width:100%;
-			text-transform:capitalize;
-			margin:1rem auto 0;
-			 border-bottom: unset;
-			 letter-spacing: unset;
-		}
-
-		div.minichart {
-			display:inline-block;
-			clear:both;
-		}
-
-	</style>
+</style>
 
 <GraphicTitle
-	title={"Percentage of each demographic group that bought a gun in 2020"}
+	title={"xxx"}
 />
 {#if dataset && dataset.length > 0}
-	{#each ["prior gun ownership", "political party", "age group"] as item, i}
-		<div class="minichart">
-			<h4 class="chart-sub-label">{item}</h4>
-			<BarChart
-				width={
-					(width > 750) ?
-					(50 + (dataset.filter(d => {return d["group"] === item}).length * (width/12))) :
-					width
-				}
-				height={
-					(width > 750) ?
-					220 :
-					(25 + (dataset.filter(d => {return d["group"] === item}).length * (220/3)))
-				}
-				data={dataset.filter(d => {
-					return d["group"] === item
-				})}
-				grouping={item}
-				xVar={"subgroup"}
-				yVar={"yes"}
-				yDomain={[0,0.25]}
-				colorscheme={schemes[i]}
-				orientation={getorientation(width)}
-			/>
-		</div>
-	{/each}
+	<div id="interactive-filter">
+		<span>View most common responses based on: </span>
+		<form>
+			<select bind:value={active}>
+				{#each selectoptions as opt}
+					<option value={opt}>
+						{opt}
+					</option>
+				{/each}
+			</select>
+		</form>
+	</div>
+	<div class="chart-container">
+		{#each (dataset.filter(d => (d.group === active)).map(d => d.subgroup)) as subgroup, i}
+			<div class="minichart">
+				<h4 class="chart-sub-label">{subgroup}</h4>
+				<BarChart
+					width={
+						chartwidth(width)
+					}
+					height={
+						250
+					}
+					data={dataset.filter(d => {
+						return d["subgroup"] === subgroup
+					})}
+					xVar={["Already vaccinated", "As soon as possible","After at least some people I know","After most people I know","Would not get the COVID-19 vaccine"]}
+					yDomain={[0,0.50]}
+					orientation={"horizontal"}
+					fill={colorScale(subgroup)}
+				/>
+			</div>
+		{/each}
+	</div>
 {/if}
 <GraphicFooter
 	source={"<a href='//covidstates.org'>The COVID-19 Consortium for Understanding the Public's Policy Preferences Across States</a>."}

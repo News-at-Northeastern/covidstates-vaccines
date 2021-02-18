@@ -1,0 +1,182 @@
+[
+  {
+    "group": "healthcare",
+    "subgroup": "Healthcare worker",
+    "Already vaccinated": 0.13,
+    "As soon as possible": 0.29,
+    "After at least some people I know": 0.19,
+    "After most people I know": 0.18,
+    "Would not get the COVID-19 vaccine": 0.21
+  },
+  {
+    "group": "healthcare",
+    "subgroup": "Not a healthcare worker",
+    "Already vaccinated": 0.02,
+    "As soon as possible": 0.34,
+    "After at least some people I know": 0.21,
+    "After most people I know": 0.2,
+    "Would not get the COVID-19 vaccine": 0.23
+  },
+  {
+    "group": "gender",
+    "subgroup": "Male",
+    "Already vaccinated": 0.18,
+    "As soon as possible": 0.35,
+    "After at least some people I know": 0.19,
+    "After most people I know": 0.15,
+    "Would not get the COVID-19 vaccine": 0.13
+  },
+  {
+    "group": "gender",
+    "subgroup": "Female",
+    "Already vaccinated": 0.09,
+    "As soon as possible": 0.26,
+    "After at least some people I know": 0.18,
+    "After most people I know": 0.2,
+    "Would not get the COVID-19 vaccine": 0.27
+  },
+  {
+    "group": "education",
+    "subgroup": "High school or less",
+    "Already vaccinated": 0.07,
+    "As soon as possible": 0.23,
+    "After at least some people I know": 0.19,
+    "After most people I know": 0.22,
+    "Would not get the COVID-19 vaccine": 0.29
+  },
+  {
+    "group": "education",
+    "subgroup": "Some college",
+    "Already vaccinated": 0.1,
+    "As soon as possible": 0.25,
+    "After at least some people I know": 0.19,
+    "After most people I know": 0.19,
+    "Would not get the COVID-19 vaccine": 0.27
+  },
+  {
+    "group": "education",
+    "subgroup": "Bachelor degree",
+    "Already vaccinated": 0.18,
+    "As soon as possible": 0.35,
+    "After at least some people I know": 0.19,
+    "After most people I know": 0.17,
+    "Would not get the COVID-19 vaccine": 0.13
+  },
+  {
+    "group": "education",
+    "subgroup": "Graduate degree",
+    "Already vaccinated": 0.23,
+    "As soon as possible": 0.42,
+    "After at least some people I know": 0.16,
+    "After most people I know": 0.1,
+    "Would not get the COVID-19 vaccine": 0.09
+  },
+  {
+    "group": "income",
+    "subgroup": "Under $50k",
+    "Already vaccinated": 0.08,
+    "As soon as possible": 0.26,
+    "After at least some people I know": 0.18,
+    "After most people I know": 0.2,
+    "Would not get the COVID-19 vaccine": 0.27
+  },
+  {
+    "group": "income",
+    "subgroup": "$50k to under $100k",
+    "Already vaccinated": 0.13,
+    "As soon as possible": 0.29,
+    "After at least some people I know": 0.19,
+    "After most people I know": 0.2,
+    "Would not get the COVID-19 vaccine": 0.19
+  },
+  {
+    "group": "income",
+    "subgroup": "$100k to under $150k",
+    "Already vaccinated": 0.2,
+    "As soon as possible": 0.41,
+    "After at least some people I know": 0.17,
+    "After most people I know": 0.07,
+    "Would not get the COVID-19 vaccine": 0.15
+  },
+  {
+    "group": "income",
+    "subgroup": "$150k to under $200k",
+    "Already vaccinated": 0.24,
+    "As soon as possible": 0.44,
+    "After at least some people I know": 0.2,
+    "After most people I know": 0.06,
+    "Would not get the COVID-19 vaccine": 0.06
+  },
+  {
+    "group": "income",
+    "subgroup": "Over $200k",
+    "Already vaccinated": 0.23,
+    "As soon as possible": 0.32,
+    "After at least some people I know": 0.17,
+    "After most people I know": 0.17,
+    "Would not get the COVID-19 vaccine": 0.11
+  },
+  {
+    "group": "race",
+    "subgroup": "African American",
+    "Already vaccinated": 0.12,
+    "As soon as possible": 0.19,
+    "After at least some people I know": 0.18,
+    "After most people I know": 0.24,
+    "Would not get the COVID-19 vaccine": 0.27
+  },
+  {
+    "group": "race",
+    "subgroup": "Asian American",
+    "Already vaccinated": 0.19,
+    "As soon as possible": 0.28,
+    "After at least some people I know": 0.25,
+    "After most people I know": 0.19,
+    "Would not get the COVID-19 vaccine": 0.09
+  },
+  {
+    "group": "race",
+    "subgroup": "Hispanic",
+    "Already vaccinated": 0.1,
+    "As soon as possible": 0.38,
+    "After at least some people I know": 0.14,
+    "After most people I know": 0.18,
+    "Would not get the COVID-19 vaccine": 0.2
+  },
+  {
+    "group": "race",
+    "subgroup": "White",
+    "Already vaccinated": 0.13,
+    "As soon as possible": 0.3,
+    "After at least some people I know": 0.19,
+    "After most people I know": 0.16,
+    "Would not get the COVID-19 vaccine": 0.22
+  },
+  {
+    "group": "party",
+    "subgroup": "Republican",
+    "Already vaccinated": 0.13,
+    "As soon as possible": 0.23,
+    "After at least some people I know": 0.16,
+    "After most people I know": 0.19,
+    "Would not get the COVID-19 vaccine": 0.3
+  },
+  {
+    "group": "party",
+    "subgroup": "Democrat",
+    "Already vaccinated": 0.15,
+    "As soon as possible": 0.36,
+    "After at least some people I know": 0.21,
+    "After most people I know": 0.15,
+    "Would not get the COVID-19 vaccine": 0.13
+  },
+  {
+    "group": "party",
+    "subgroup": "Independent",
+    "Already vaccinated": 0.1,
+    "As soon as possible": 0.25,
+    "After at least some people I know": 0.17,
+    "After most people I know": 0.25,
+    "Would not get the COVID-19 vaccine": 0.24
+  }
+]
