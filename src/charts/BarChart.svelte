@@ -22,7 +22,7 @@
 
 	let el;
 
-	const padding = { top: 10, right: 0, bottom: 50, left: 50 };
+	const padding = { top: 10, right: 0, bottom: 10, left: 50 };
 
 
 

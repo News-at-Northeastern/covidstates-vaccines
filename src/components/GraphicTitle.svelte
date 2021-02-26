@@ -11,6 +11,7 @@
       font-size:1.75rem;
       font-weight:900;
       display:block;
+      margin-bottom:2rem;
    }
 </style>
 

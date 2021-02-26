@@ -5,26 +5,20 @@
 	import GraphicTitle from './components/GraphicTitle.svelte'
 	import GraphicFooter from './components/GraphicFooter.svelte'
 	import * as colors from './helpers/colors.js'
-	import * as data from '../public/datasets/data.json'
+	import * as data from '../public/datasets/data-national.json'
 
 	let dataset;
 	let selectoptions;
-	let active;
+	let active = "Employment in healthcare";
 	let schemes = [colors.divergingbrownteal, colors.political, colors.dark]
 
 	onMount(function() {
-		selectoptions = ([...new Set(data.default.map(d => d.group))])
-		active = selectoptions[0]
-		dataset = data.default.filter(d => (d.group === active))
+		dataset = data.default
 		colorScale.domain(data.default.map(d => d.subgroup))
 	})
 
-	afterUpdate(function() {
-		dataset = data.default.filter(d => (d.group === active))
-	})
-
 	let width = Math.min(
-		document.getElementById('interactive').getBoundingClientRect().width,
+		document.getElementById('interactive-national-sample').getBoundingClientRect().width,
 		1000
 	);
 
@@ -38,7 +32,7 @@
 
 	$: colorScale = scaleOrdinal()
 		.domain([0,1,2])
-		.range(colors.dark.concat(colors.vibrant.concat(colors.political)));
+		.range(["#669b90","#f28e2b"]);
 
 
 </script>
@@ -100,12 +94,8 @@
 	title={"If you were able to choose when to get a COVID-19 vaccine, would you get it..."}
 />
 {#if dataset && dataset.length > 0}
-	<div id="interactive-filter">
-		{#if active === "Employment in healthcare"}
-			<span>View most common responses based on: </span>
-		{:else}
-			<span>View most common responses from healthcare workers based on: </span>
-		{/if}
+	<!-- <div id="interactive-filter">
+		<span>View most common responses based on: </span>
 		<form>
 			<select bind:value={active}>
 				{#each selectoptions as opt}
@@ -115,7 +105,7 @@
 				{/each}
 			</select>
 		</form>
-	</div>
+	</div> -->
 	<div class="chart-container">
 		{#each (dataset.filter(d => (d.group === active)).map(d => d.subgroup)) as subgroup, i}
 			<div class="minichart">

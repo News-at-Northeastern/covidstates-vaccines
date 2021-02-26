@@ -1,0 +1,20 @@
+[
+   {
+     "group": "Employment in healthcare",
+     "subgroup": "Healthcare worker",
+     "Already vaccinated": 0.13,
+     "As soon as possible": 0.29,
+     "After at least some people I know": 0.19,
+     "After most people I know": 0.18,
+     "Would not get the COVID-19 vaccine": 0.21
+   },
+   {
+     "group": "Employment in healthcare",
+     "subgroup": "Not a healthcare worker",
+     "Already vaccinated": 0.02,
+     "As soon as possible": 0.34,
+     "After at least some people I know": 0.21,
+     "After most people I know": 0.2,
+     "Would not get the COVID-19 vaccine": 0.23
+   }
+]

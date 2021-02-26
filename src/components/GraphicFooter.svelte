@@ -51,10 +51,10 @@
 
 <div id="graphic-footer">
    <div id="footer-meta">
-      <span class="graphic-footer-text">SOURCE: {@html source}</span>
       {#if note}
          <span class="graphic-footer-text">NOTE: {@html note}</span>
       {/if}
+      <span class="graphic-footer-text">SOURCE: {@html source}</span>
       {#if credit}
          <span class="graphic-footer-text">VISUALIZATION: {@html credit}</span>
       {/if}

@@ -1,24 +1,7 @@
 [
+
   {
-    "group": "healthcare",
-    "subgroup": "Healthcare worker",
-    "Already vaccinated": 0.13,
-    "As soon as possible": 0.29,
-    "After at least some people I know": 0.19,
-    "After most people I know": 0.18,
-    "Would not get the COVID-19 vaccine": 0.21
-  },
-  {
-    "group": "healthcare",
-    "subgroup": "Not a healthcare worker",
-    "Already vaccinated": 0.02,
-    "As soon as possible": 0.34,
-    "After at least some people I know": 0.21,
-    "After most people I know": 0.2,
-    "Would not get the COVID-19 vaccine": 0.23
-  },
-  {
-    "group": "gender",
+    "group": "Gender",
     "subgroup": "Male",
     "Already vaccinated": 0.18,
     "As soon as possible": 0.35,
@@ -27,7 +10,7 @@
     "Would not get the COVID-19 vaccine": 0.13
   },
   {
-    "group": "gender",
+    "group": "Gender",
     "subgroup": "Female",
     "Already vaccinated": 0.09,
     "As soon as possible": 0.26,
@@ -36,7 +19,7 @@
     "Would not get the COVID-19 vaccine": 0.27
   },
   {
-    "group": "education",
+    "group": "Education level",
     "subgroup": "High school or less",
     "Already vaccinated": 0.07,
     "As soon as possible": 0.23,
@@ -45,7 +28,7 @@
     "Would not get the COVID-19 vaccine": 0.29
   },
   {
-    "group": "education",
+    "group": "Education level",
     "subgroup": "Some college",
     "Already vaccinated": 0.1,
     "As soon as possible": 0.25,
@@ -54,7 +37,7 @@
     "Would not get the COVID-19 vaccine": 0.27
   },
   {
-    "group": "education",
+    "group": "Education level",
     "subgroup": "Bachelor degree",
     "Already vaccinated": 0.18,
     "As soon as possible": 0.35,
@@ -63,7 +46,7 @@
     "Would not get the COVID-19 vaccine": 0.13
   },
   {
-    "group": "education",
+    "group": "Education level",
     "subgroup": "Graduate degree",
     "Already vaccinated": 0.23,
     "As soon as possible": 0.42,
@@ -72,7 +55,7 @@
     "Would not get the COVID-19 vaccine": 0.09
   },
   {
-    "group": "income",
+    "group": "Income",
     "subgroup": "Under $50k",
     "Already vaccinated": 0.08,
     "As soon as possible": 0.26,
@@ -81,7 +64,7 @@
     "Would not get the COVID-19 vaccine": 0.27
   },
   {
-    "group": "income",
+    "group": "Income",
     "subgroup": "$50k to under $100k",
     "Already vaccinated": 0.13,
     "As soon as possible": 0.29,
@@ -90,7 +73,7 @@
     "Would not get the COVID-19 vaccine": 0.19
   },
   {
-    "group": "income",
+    "group": "Income",
     "subgroup": "$100k to under $150k",
     "Already vaccinated": 0.2,
     "As soon as possible": 0.41,
@@ -99,7 +82,7 @@
     "Would not get the COVID-19 vaccine": 0.15
   },
   {
-    "group": "income",
+    "group": "Income",
     "subgroup": "$150k to under $200k",
     "Already vaccinated": 0.24,
     "As soon as possible": 0.44,
@@ -108,7 +91,7 @@
     "Would not get the COVID-19 vaccine": 0.06
   },
   {
-    "group": "income",
+    "group": "Income",
     "subgroup": "Over $200k",
     "Already vaccinated": 0.23,
     "As soon as possible": 0.32,
@@ -117,7 +100,7 @@
     "Would not get the COVID-19 vaccine": 0.11
   },
   {
-    "group": "race",
+    "group": "Race",
     "subgroup": "African American",
     "Already vaccinated": 0.12,
     "As soon as possible": 0.19,
@@ -126,7 +109,7 @@
     "Would not get the COVID-19 vaccine": 0.27
   },
   {
-    "group": "race",
+    "group": "Race",
     "subgroup": "Asian American",
     "Already vaccinated": 0.19,
     "As soon as possible": 0.28,
@@ -135,7 +118,7 @@
     "Would not get the COVID-19 vaccine": 0.09
   },
   {
-    "group": "race",
+    "group": "Race",
     "subgroup": "Hispanic",
     "Already vaccinated": 0.1,
     "As soon as possible": 0.38,
@@ -144,7 +127,7 @@
     "Would not get the COVID-19 vaccine": 0.2
   },
   {
-    "group": "race",
+    "group": "Race",
     "subgroup": "White",
     "Already vaccinated": 0.13,
     "As soon as possible": 0.3,
@@ -153,7 +136,7 @@
     "Would not get the COVID-19 vaccine": 0.22
   },
   {
-    "group": "party",
+    "group": "Political affiliation",
     "subgroup": "Republican",
     "Already vaccinated": 0.13,
     "As soon as possible": 0.23,
@@ -162,7 +145,7 @@
     "Would not get the COVID-19 vaccine": 0.3
   },
   {
-    "group": "party",
+    "group": "Political affiliation",
     "subgroup": "Democrat",
     "Already vaccinated": 0.15,
     "As soon as possible": 0.36,
@@ -171,7 +154,7 @@
     "Would not get the COVID-19 vaccine": 0.13
   },
   {
-    "group": "party",
+    "group": "Political affiliation",
     "subgroup": "Independent",
     "Already vaccinated": 0.1,
     "As soon as possible": 0.25,
